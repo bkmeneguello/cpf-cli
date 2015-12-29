@@ -41,7 +41,7 @@ if (option('--versão') || option('--versao')) {
 } else {
     if (process.argv.length === 2) {
         console.log(CPF.gerar());
-    } else if (!formatar) {
+    } else if (!formatar || process.argv.length === 3) {
         var numero = process.argv[2],
             val = CPF.validar(numero);
 
