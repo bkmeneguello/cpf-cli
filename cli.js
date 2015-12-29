@@ -4,11 +4,27 @@
 
 var CPF = require('cpf');
 
-if (process.argv.indexOf('--versão') !== -1) {
-    var version = require('package.json').version;
+function option(opcao) {
+    if (process.argv.indexOf(opcao) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+var formatar;
+
+if (option('-f') || option('--formatar')) {
+    formatar = true;
+} else {
+    formatar = false;
+}
+
+if (option('--versão') || option('--versao')) {
+    var version = require('./package.json').version;
 
     console.log(version);
-} else if (process.argv.indexOf('--ajuda') !== -1) {
+} else if (option('--ajuda')) {
     var ajuda = [
         '',
         '  Uso: cpf [opções] [número]',
@@ -25,7 +41,7 @@ if (process.argv.indexOf('--versão') !== -1) {
 } else {
     if (process.argv.length === 2) {
         console.log(CPF.gerar());
-    } else if (process.argv.length === 3) {
+    } else if (!formatar) {
         var numero = process.argv[2],
             val = CPF.validar(numero);
 
@@ -35,15 +51,32 @@ if (process.argv.indexOf('--versão') !== -1) {
             val = 'Inválido';
         }
 
-        console.log(val);
+        if (/^--?/.test(numero)) {
+            console.log(CPF.gerar());
+        } else {
+            console.log(val);
+        }
     } else {
         var argv1 = process.argv[2],
-            argv2 = process.argv[3];
+            argv2 = process.argv[3],
+            arg;
 
         if (argv1 === '-f' || argv1 === '--formatar') {
-            console.log(CPF.formatar(argv2));
+            arg = argv2;
         } else {
-            console.log(CPF.formatar(argv1));
+            arg = argv1;
+        }
+
+        if (/^--?/.test(arg)) {
+            console.log(CPF.gerar());
+        } else {
+            var formatado = CPF.formatar(arg);
+
+            if (formatado === undefined) {
+                console.log('Inválido');
+            } else {
+                console.log(formatado);
+            }
         }
     }
 }
