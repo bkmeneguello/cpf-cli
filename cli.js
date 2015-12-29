@@ -12,13 +12,7 @@ function option(opcao) {
     }
 }
 
-var formatar;
-
-if (option('-f') || option('--formatar')) {
-    formatar = true;
-} else {
-    formatar = false;
-}
+var formatar = option('-f') || option('--formatar');
 
 if (option('--versão') || option('--versao')) {
     var version = require('./package.json').version;
