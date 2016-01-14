@@ -1,6 +1,6 @@
 {
     "name": "cpf-cli",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Formatar, gerar ou validar um CPF via linha de comando.",
     "bin": {
         "cpf": "cli.js"
