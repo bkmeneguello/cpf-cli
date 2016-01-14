@@ -1,8 +1,10 @@
 # cpf-cli
 
-Formatar, gerar ou validar um CPF via linha de comando.
+> Formatar, gerar ou validar um CPF via linha de comando.
 
 ## Instalação
+
+Via linha de comando com [NPM](https://npmjs.com/):
 
 ```
 $ npm install --global cpf-cli
@@ -10,35 +12,20 @@ $ npm install --global cpf-cli
 
 ## Uso
 
-**Opções:**
-
 ```
-Uso: cpf [opções] [número]
-
-Opções:
-
-  -f, --formatar  Formatar um CPF.
-      --versão    Exibir a versão.
-      --ajuda     Exibir está ajuda.
+cpf [opções] <número>
+Tente `cpf --ajuda` para mais informações.
 ```
 
-**Exemplos:**
+Veja alguns exemplos:
 
-```
-$ cpf
-111.444.777-35
-```
-
-```
-$ cpf 111.444.777-35
-Válido
+```sh
+$ cpf 111.444.777-35          # Válido
+$ cpf --formatar 11144477735  # 111.444.777-35
 ```
 
-```
-$ cpf --formatar 11144477735
-111.444.777-35
-```
+Use `cpf` (sem argumentos) para gerar um CPF aleatório válido.
 
 ## Licença
 
-MIT
+[MIT](http://theuves.mit-license.org/) &copy; [Matheus Alves](http://alves.xyz/)
