@@ -21,7 +21,7 @@ if (option('--versão') || option('--versao')) {
 } else if (option('--ajuda')) {
     var ajuda = [
         '',
-        '  Uso: cpf [opções] [número]',
+        '  Uso: cpf [opções] <número>',
         '',
         '  Opções:',
         '',
