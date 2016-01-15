@@ -66,7 +66,7 @@ if (option('--versão') || option('--versao')) {
         } else {
             var formatado = CPF.formatar(arg);
 
-            if (formatado === undefined) {
+            if (formatado === false) {
                 console.log('Inválido');
             } else {
                 console.log(formatado);
