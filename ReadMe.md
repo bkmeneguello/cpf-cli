@@ -28,4 +28,4 @@ Use `cpf` (sem argumentos) para gerar um CPF aleatório válido.
 
 ## Licença
 
-[MIT](http://theuves.mit-license.org/) &copy; [Matheus Alves](http://alves.xyz/)
+[MIT](http://theuves.mit-license.org/) &copy; [Matheus Alves](http://github.com/theuves)
