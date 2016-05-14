@@ -34,10 +34,10 @@ if (option('--versão') || option('--versao')) {
     console.log(ajuda);
 } else {
     if (process.argv.length === 2) {
-        console.log(CPF.gerar());
+        console.log(CPF.generate());
     } else if (!formatar || process.argv.length === 3) {
         var numero = process.argv[2],
-            val = CPF.validar(numero);
+            val = CPF.validate(numero);
 
         if (val) {
             val = 'Válido';
@@ -46,7 +46,7 @@ if (option('--versão') || option('--versao')) {
         }
 
         if (/^--?/.test(numero)) {
-            console.log(CPF.gerar());
+            console.log(CPF.generate());
         } else {
             console.log(val);
         }
@@ -62,9 +62,9 @@ if (option('--versão') || option('--versao')) {
         }
 
         if (/^--?/.test(arg)) {
-            console.log(CPF.gerar());
+            console.log(CPF.generate());
         } else {
-            var formatado = CPF.formatar(arg);
+            var formatado = CPF.format(arg);
 
             if (formatado === false) {
                 console.log('Inválido');
