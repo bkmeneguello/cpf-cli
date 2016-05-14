@@ -2,75 +2,53 @@
 
 'use strict';
 
-var CPF = require('cpf');
-
-function option(opcao) {
-    if (process.argv.indexOf(opcao) !== -1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-var formatar = option('-f') || option('--formatar');
+const CPF = require('cpf'),
+    option = (opt) => process.argv.indexOf(opt) !== -1,
+    format = option('-f') || option('--formatar');
 
 if (option('--versão') || option('--versao')) {
-    var version = require('./package.json').version;
+    console.log('v' + require('./package.json').version);
 
-    console.log(version);
 } else if (option('--ajuda')) {
-    var ajuda = [
+    console.log([
         '',
         '  Uso: cpf [opções] <número>',
         '',
         '  Opções:',
         '',
-        '    -f, --formatar  Formatar um CPF.',
-        '        --versão    Exibir a versão.',
-        '        --ajuda     Exibir está ajuda.',
+        '    -f, --formatar  formata CPF',
+        '        --versão    exibe a versão',
+        '        --ajuda     exibe está informação',
         ''
-    ];
-    ajuda = ajuda.join('\n');
-    console.log(ajuda);
+    ].join('\n'));
 } else {
     if (process.argv.length === 2) {
         console.log(CPF.generate());
-    } else if (!formatar || process.argv.length === 3) {
-        var numero = process.argv[2],
-            val = CPF.validate(numero);
+    } else if (!format || process.argv.length === 3) {
+        const num = process.argv[2], val = CPF.validate(num);
 
-        if (val) {
-            val = 'Válido';
-        } else {
-            val = 'Inválido';
-        }
-
-        if (/^--?/.test(numero)) {
+        if (/^--?/.test(num)) {
             console.log(CPF.generate());
-        } else {
-            console.log(val);
+            process.exit(0);
         }
-    } else {
-        var argv1 = process.argv[2],
-            argv2 = process.argv[3],
-            arg;
 
-        if (argv1 === '-f' || argv1 === '--formatar') {
-            arg = argv2;
-        } else {
-            arg = argv1;
-        }
+        console.log(val ? 'Válido' : 'Inválido');
+    } else {
+        const arg1 = process.argv[2],
+            arg2 = process.argv[3],
+            arg = /^(-f|--formatar)$/.test(arg1) ? arg2 : arg1;
 
         if (/^--?/.test(arg)) {
             console.log(CPF.generate());
         } else {
-            var formatado = CPF.format(arg);
+            const formatted = CPF.format(arg);
 
-            if (!formatado) {
+            if (!formatted) {
                 console.log('Inválido');
-            } else {
-                console.log(formatado);
+                process.exit(0);
             }
+
+            console.log(formatted);
         }
     }
 }
