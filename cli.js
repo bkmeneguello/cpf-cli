@@ -10,14 +10,14 @@ const help = `
   Opções:
 
     -f, --formatar  formata CPF
-        --versão    exibe a versão
-        --ajuda     exibe está informação
+    -v, --versão    exibe a versão
+    -?, --ajuda     exibe essa mensagem
 `;
 
 const validOpts = [
-    '--versão',
-    '--ajuda',
     '-f', '--formatar'
+    '-v', '--versão',
+    '-?', '--ajuda',
 ];
 
 var format = false;
@@ -27,9 +27,11 @@ for (var i in args) {
     if (/^--?/.test(args[i])) {
         if (validOpts.indexOf(args[i]) !== -1) {
             switch (args[i]) {
+                case '-v':
                 case '--versão':
                     console.log(`v${require('./package.json').version}`);
                     process.exit(0);
+                case '-?':
                 case '--ajuda':
                     console.log(help);
                     process.exit(0);
