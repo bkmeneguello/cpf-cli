@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Via linha de comando com [NPM](https://npmjs.com/):
+Com [`npm`](https://npmjs.com/) faça:
 
 ```
 $ npm install --global cpf-cli
