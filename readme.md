@@ -1,31 +1,8 @@
-# cpf-cli
+cpf-cli
+=======
 
-> Formatar, gerar ou validar um CPF via linha de comando.
+> Manipular números de CPF via linha de comando.
 
-## Instalação
+Use `npm install -g cpf-cli` para instalá-lo.
 
-Com [`npm`](https://npmjs.com/) faça:
-
-```
-$ npm install --global cpf-cli
-```
-
-## Uso
-
-```
-cpf [opções] <número>
-Tente `cpf --ajuda` para mais informações.
-```
-
-Veja alguns exemplos:
-
-```sh
-$ cpf 111.444.777-35          # Válido
-$ cpf --formatar 11144477735  # 111.444.777-35
-```
-
-Use `cpf` (sem argumentos) para gerar um CPF aleatório válido.
-
-## Licença
-
-[MIT](http://theuves.mit-license.org/) &copy; [Matheus Alves](http://github.com/theuves)
+Use `cpf -?` para ver como usá-lo.
