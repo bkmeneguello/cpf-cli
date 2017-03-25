@@ -1,6 +1,6 @@
 {
   "name": "cpf-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Manipular números de CPF via linha de comando.",
   "bin": {
     "cpf": "./bin/cpf"
