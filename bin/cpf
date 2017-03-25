@@ -16,7 +16,7 @@ process.argv.slice(2).forEach(function (arg) {
       "-?", "--ajuda"
     ].includes(arg)) {
       if (/^(-v|--versão)$/.test(arg)) {
-        console.log("v" + require("./package.json").version);
+        console.log("v" + require("../package.json").version);
         process.exit(0);
       } else if (/^(-\?|--ajuda)$/.test(arg)) {
         console.log([
