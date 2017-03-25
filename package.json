@@ -1,17 +1,14 @@
 {
-    "name": "cpf-cli",
-    "version": "0.0.6",
-    "description": "Formatar, gerar ou validar um CPF via linha de comando.",
-    "bin": {
-        "cpf": "cli.js"
-    },
-    "dependencies": {
-        "cpf": "^0.1.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/theuves/cpf-cli.git"
-    },
-    "author": "Matheus Alves",
-    "license": "MIT"
+  "name": "cpf-cli",
+  "version": "0.0.6",
+  "description": "Manipular números de CPF via linha de comando.",
+  "bin": {
+    "cpf": "cli.js"
+  },
+  "dependencies": {
+    "cpf": "^0.1.0"
+  },
+  "repository": "theuves/cpf-cli",
+  "author": "Matheus Alves",
+  "license": "MIT"
 }
